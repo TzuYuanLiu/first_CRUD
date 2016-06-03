@@ -1,23 +1,28 @@
 <h1>event list</h1>
 
+<table class="table">
 <% @events.each do |e|  %>
 
-<ul>
-	<li>
-		<%= e.name %>
-		<%= link_to 'show', event_path(e) %>
 
-		<%= link_to ' XML', event_path(e, :format => :xml) %>
-    	<%= link_to ' JSON', event_path(e, :format => :json) %>
+	<tr>
+		<td>
+			<%= e.name %>
+		</td>	
+		<td>
+			<%= link_to 'show', event_path(e), :class => "btn btn-primary" %>
 
-		<%= link_to 'edit', edit_event_path(e) %>
-		<%= link_to 'delete', event_path(e), :method => :delete %>
-	</li>
-</ul>
+			<%= link_to ' XML', event_path(e, :format => :xml), :class => "btn btn-default" %>
+	    	<%= link_to ' JSON', event_path(e, :format => :json), :class => "btn btn-default" %>
+
+			<%= link_to 'edit', edit_event_path(e), :class => "btn btn-default" %>
+			<%= link_to 'delete', event_path(e), :method => :delete, :class => "btn btn-danger" %>
+		</td>
+	</tr>
+
 
 
 <% end %>
-
+</table>
 
 <%= link_to 'New Event', new_event_path %>
 
