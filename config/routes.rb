@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   resources :people
   resources :events
+  resources :books
 get "welcome/say_hello" => "welcome#say"
 
 get "welcome" => "welcome#index"
@@ -10,7 +11,7 @@ get "welcome" => "welcome#index"
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#say'
+  root 'events#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

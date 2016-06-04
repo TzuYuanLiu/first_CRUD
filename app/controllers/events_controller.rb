@@ -1,15 +1,20 @@
 class EventsController < ApplicationController
-	before_action :set_event, :only => [ :show, :edit, :update, :destroy]
+	before_action :set_event, :only => [ :show, :edit, :update, :destroy ]
 
 	def index
+		@event = Event.new
 		@events = Event.page(params[:page]).per(10)
+
+
 
 		respond_to do |format|
 		    format.html # index.html.erb
 		    format.xml { render :xml => @events.to_xml }
 		    format.json { render :json => @events.to_json }
 		    format.atom { @feed_title = "My event list" } # index.atom.builder
-  		end
+		end    
+
+ 
 	end
 
 	def new
@@ -44,14 +49,14 @@ class EventsController < ApplicationController
 	end
 
 	def update
-		
+
   		@event.update(event_params)
 
   		  if @event.update(event_params)
   		  	flash[:notice] = "event was successfully updated"
 		    redirect_to event_path(@event)
 		  else
-		    render :action => :edit
+		    render :action => :index
 		  end
 	end
 

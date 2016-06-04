@@ -1,4 +1,4 @@
-<h1>event list</h1>
+<h1>Bookshelf</h1>
 
 <table class="table">
 <% @events.each do |e|  %>
@@ -18,13 +18,33 @@
 			<%= link_to 'delete', event_path(e), :method => :delete, :class => "btn btn-danger" %>
 		</td>
 	</tr>
-
-
-
 <% end %>
 </table>
 
-<%= link_to 'New Event', new_event_path %>
+
+
+
+
+<%= form_for @event  do |f| %> 
+	<div class="form-group">
+		<%= f.label :name, "Name" %>
+		<%= f.text_field :name, :class => "form-control" %>
+	</div>
+
+	<div class="form-group">
+		<%= f.label :description, "Description" %>
+		<%= f.text_area :description, :class => "form-control" %>
+	</div>
+	<%= f.submit "Create", :class => "btn btn-primary" %>
+<% end %>
+ 	 
+
+
+
+
+
+
+
 
 <%= paginate @events %>
 
