@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :people
   resources :events
   resources :books
+  
 get "welcome/say_hello" => "welcome#say"
 
 get "welcome" => "welcome#index"
