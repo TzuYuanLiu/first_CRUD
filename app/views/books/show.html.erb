@@ -1,4 +1,21 @@
 <h1><%= @book.name %></h1>
-<%= simple_format(@book.description) %>
+
+<table class="table">
+	<tr>
+		<td>
+		<%= simple_format(@book.description) %>
+		</td>
+	</tr>
+	<tr>
+		<%= @book.url %>		
+	</tr>
+		
+	<tr>
+		<td>
+		上架時間： <%= @book.updated_at%>  
+		</td>
+	</tr>
+	
+</table>
 
 <p><%= link_to 'Back to index', books_path %></p>

@@ -4,7 +4,7 @@ class BooksController < ApplicationController
 
 	def index
 		@book = Book.new
-		@books = Book.page(params[:page]).per(10)  
+		@books = Book.page(params[:page]).per(5)  
 	end
 
 	def show
